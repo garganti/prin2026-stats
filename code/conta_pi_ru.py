@@ -23,7 +23,7 @@ def main():
         '# Numero di PI e RU per università/ente', '',
         f'File Excel analizzati: **{len(dati.file)}**. Righe PI/RU valide: **{len(dati.unita)}**.', '',
         '| Università / Ente | PI | RU | Totale |',
-        '|---|---:|---:|',
+        '|---|---:|---:|---:|',
     ]
     for ente, pi, ru, totale in risultati:
         md.append(f'| {ente.replace("|", "/")} | {pi} | {ru} | {totale} |')

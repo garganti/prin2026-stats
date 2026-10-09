@@ -1,9 +1,9 @@
 # Numero di PI e RU per università/ente
 
-File Excel analizzati: **19**. Righe PI/RU valide: **787**. 
+File Excel analizzati: **19**. Righe PI/RU valide: **787**.
 
 | Università / Ente | PI | RU | Totale |
-|---|---:|---:|
+|---|---:|---:|---:|
 | Consiglio Nazionale delle Ricerche | 9 | 46 | 55 |
 | Università degli Studi di ROMA "La Sapienza" | 9 | 45 | 54 |
 | Università degli Studi di PADOVA | 11 | 25 | 36 |
@@ -95,7 +95,6 @@ File Excel analizzati: **19**. Righe PI/RU valide: **787**.
 | Università degli Studi di SASSARI | 0 | 1 | 1 |
 | Università degli Studi di TERAMO | 0 | 1 | 1 |
 | **TOTALE** | **155** | **632** | **787** |
-
 
 Nota: i valori contano i **nomi distinti per ente e ruolo**, non le partecipazioni a progetti. Una persona che svolge entrambi i ruoli è contata in entrambi. Enti aggregati per codice fiscale.
 
