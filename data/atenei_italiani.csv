@@ -1,0 +1,102 @@
+nome;regione;tipo;codice_fiscale;fonte
+Università degli studi di Torino;Piemonte;Statale;80088230018;USTAT
+Politecnico di Torino;Piemonte;Statale;00518460019;USTAT
+"Università degli studi del Piemonte orientale ""Amedeo Avogadro""";Piemonte;Statale;94021400026;USTAT
+Università di Scienze Gastronomiche;Piemonte;Non statale;;USTAT
+Università della Valle d'Aosta;Valle d'Aosta;Non statale;;USTAT
+Università degli studi di Genova;Liguria;Statale;00754150100;USTAT
+"Università ""Carlo Cattaneo"" (LIUC)";Lombardia;Non statale;02015300128;USTAT
+Università degli Studi dell' Insubria;Lombardia;Statale;95039180120;USTAT
+"Università telematica ""e-Campus"" di Novedrate (CO)";Lombardia;Non statale;90027520130;USTAT
+Università degli Studi di Milano;Lombardia;Statale;80012650158;USTAT
+Politecnico di Milano;Lombardia;Statale;80057930150;USTAT
+Università Commerciale Luigi Bocconi di Milano;Lombardia;Non statale;;USTAT
+"Università Cattolica del ""Sacro Cuore""";Lombardia;Non statale;02133120150;USTAT
+Libera Università di Lingue e Comunicazione (IULM);Lombardia;Non statale;80071270153;USTAT
+Libera Università, Vita-Salute San Raffaele di Milano;Lombardia;Non statale;97187560152;USTAT
+Università degli studi di Milano-Bicocca;Lombardia;Statale;12621570154;USTAT
+Humanitas University;Lombardia;Non statale;97692990159;USTAT
+Università degli Studi di Bergamo;Lombardia;Statale;;USTAT
+Università degli Studi di Brescia;Lombardia;Statale;98007650173;USTAT
+Università degli Studi di Pavia;Lombardia;Statale;80007270186;USTAT
+Istituto universitario di studi superiori di Pavia;Lombardia;Statale;96049740184;USTAT
+Libera Università di Bolzano;Trentino-Alto Adige;Non statale;94060760215;USTAT
+Università degli Studi di Trento;Trentino-Alto Adige;Statale;00340520220;USTAT
+Università degli Studi di Verona;Veneto;Statale;93009870234;USTAT
+Università degli studi Ca' Foscari di Venezia;Veneto;Statale;80007720271;USTAT
+Università Iuav di Venezia;Veneto;Statale;80009280274;USTAT
+Università degli Studi di Padova;Veneto;Statale;80006480281;USTAT
+Università degli Studi di Udine;Friuli-Venezia Giulia;Statale;80014550307;USTAT
+Università degli Studi di Trieste;Friuli-Venezia Giulia;Statale;80013890324;USTAT
+Scuola Internazionale Superiore di Studi Avanzati di Trieste;Friuli-Venezia Giulia;Statale;80035060328;USTAT
+Università degli Studi di Parma;Emilia-Romagna;Statale;00308780345;USTAT
+Università degli Studi di Modena e Reggio Emilia;Emilia-Romagna;Statale;00427620364;USTAT
+Università degli Studi di Bologna;Emilia-Romagna;Statale;80007010376;USTAT
+Università degli Studi di Ferrara;Emilia-Romagna;Statale;80007370382;USTAT
+"Università degli studi ""Carlo Bo"" di Urbino";Marche;Statale;82002850418;USTAT
+Università Politecnica delle Marche - Ancona;Marche;Statale;00382520427;USTAT
+Università degli Studi di Macerata;Marche;Statale;00177050432;USTAT
+Università degli Studi di Camerino;Marche;Statale;81001910439;USTAT
+Scuola IMT Alti Studi di Lucca;Toscana;Statale;92037570469;USTAT
+Università degli Studi di Firenze;Toscana;Statale;01279680480;USTAT
+"Università telematica ""Italian University line"" di Firenze";Toscana;Non statale;;USTAT
+Università di Pisa;Toscana;Statale;80003670504;USTAT
+Scuola Normale Superiore di Pisa;Toscana;Statale;80005050507;USTAT
+"Scuola Superiore di Studi Universitari e Perfezionamento ""S. Anna"" di Pisa";Toscana;Statale;93008800505;USTAT
+Università degli Studi di Siena;Toscana;Statale;80002070524;USTAT
+Università per stranieri di Siena;Toscana;Statale;;USTAT
+Università degli Studi di Perugia;Umbria;Statale;00448820548;USTAT
+Università per stranieri di Perugia;Umbria;Statale;80002630541;USTAT
+Università degli Studi della Tuscia;Lazio;Statale;80029030568;USTAT
+Università degli studi di Roma La Sapienza;Lazio;Statale;80209930587;USTAT
+Università degli Studi di Roma Tor Vergata;Lazio;Statale;80213750583;USTAT
+Libera Università Maria SS.Assunta - (LUMSA) di Roma;Lazio;Non statale;;USTAT
+LUISS - Libera Università internazionale degli studi sociali Guido Carli di Roma;Lazio;Non statale;02508710585;USTAT
+"Università degli studi di Roma ""Foro Italico""";Lazio;Statale;80229010584;USTAT
+Università degli Studi Roma Tre;Lazio;Statale;04400441004;USTAT
+Università Campus Bio-medico di Roma;Lazio;Non statale;97087620585;USTAT
+Università degli Studi Internazionali di Roma – UNINT;Lazio;Non statale;;USTAT
+Università telematica Guglielmo Marconi di Roma;Lazio;Non statale;;USTAT
+Università telematica Unitelma Sapienza di Roma;Lazio;Non statale;;USTAT
+Università Europea di Roma;Lazio;Non statale;;USTAT
+Università telematica internazionale UNINETTUNO di Roma;Lazio;Non statale;;USTAT
+Universitas telematica Mercatorum di Roma;Lazio;Non statale;;USTAT
+Università telematica Niccolò Cusano di Roma;Lazio;Non statale;09073721004;USTAT
+"Università telematica ""San Raffaele"" di Roma - già ""UNITEL""";Lazio;Non statale;97471900155;USTAT
+Link Campus University di Roma;Lazio;Non statale;11933781004;USTAT
+Saint Camillus International University of Health;Lazio;Non statale;97962900581;USTAT
+Centro Alti Studi per la Difesa (CASD) di Roma;Lazio;Statale;97042570586;USTAT
+Università degli Studi di Cassino e del Lazio Meridionale;Lazio;Statale;81006500607;USTAT
+Università degli Studi del Sannio;Campania;Statale;01114010620;USTAT
+"Università telematica ""Giustino Fortunato"" di Benevento";Campania;Non statale;;USTAT
+Università degli studi di Napoli Federico II;Campania;Statale;00876220633;USTAT
+Università degli Studi di Napoli - Parthenope;Campania;Statale;80018240632;USTAT
+Università degli studi L'Orientale di Napoli;Campania;Statale;00297640633;USTAT
+Università degli studi Suor Orsola Benincasa di Napoli;Campania;Non statale;;USTAT
+"Università degli studi della Campania ""Luigi Vanvitelli""";Campania;Statale;02044190615;USTAT
+"Università telematica ""Pegaso"" di Napoli";Campania;Non statale;05411471211;USTAT
+Scuola Superiore Meridionale di Napoli;Campania;Statale;95315120634;USTAT
+Università degli Studi di Salerno;Campania;Statale;80018670655;USTAT
+Università degli studi di L'Aquila;Abruzzo;Statale;01021630668;USTAT
+Gran Sasso Science Institute - Scuola di dottorato internazionale dell'Aquila;Abruzzo;Statale;01984560662;USTAT
+Università degli Studi di Teramo;Abruzzo;Statale;92012890676;USTAT
+Università degli studi Gabriele D'Annunzio di Chieti e Pescara;Abruzzo;Statale;93002750698;USTAT
+"Università telematica non statale ""Leonardo da Vinci"" di Torrevecchia Teatina (CH)";Abruzzo;Non statale;;USTAT
+Università degli Studi del Molise;Molise;Statale;92008370709;USTAT
+Università degli Studi di Foggia;Puglia;Statale;94045260711;USTAT
+Università degli Studi di Bari;Puglia;Statale;80002170720;USTAT
+Politecnico di Bari;Puglia;Statale;93051590722;USTAT
+"Libera Università Mediterranea LUM ""Giuseppe Degennaro""";Puglia;Non statale;93135780729;USTAT
+Università del Salento;Puglia;Statale;80008870752;USTAT
+Università degli studi della Basilicata;Basilicata;Statale;96003410766;USTAT
+Università della Calabria;Calabria;Statale;80003950781;USTAT
+Università degli studi di Catanzaro - Magna Grecia;Calabria;Statale;97026980793;USTAT
+Università degli studi Mediterranea di Reggio Calabria;Calabria;Statale;;USTAT
+"Università per stranieri ""Dante Alighieri"" di Reggio Calabria";Calabria;Non statale;;USTAT
+Università degli Studi di Palermo;Sicilia;Statale;80023730825;USTAT
+Università degli Studi di Messina;Sicilia;Statale;80004070837;USTAT
+"Libera Università della Sicilia Centrale ""KORE"" di Enna";Sicilia;Non statale;01094410865;USTAT
+Università degli Studi di Catania;Sicilia;Statale;02772010878;USTAT
+Università degli Studi di Sassari;Sardegna;Statale;00196350904;USTAT
+Università degli Studi di Cagliari;Sardegna;Statale;80019600925;USTAT
+UNINEUROMED - Neuromed Mediterranean University of Sciences and Technologies;Molise;Non statale;;MUR-2026
