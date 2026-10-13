@@ -1,11 +1,11 @@
 # Numero di persone PI per università/ente
 
-File Excel analizzati: **20**.
+File Excel analizzati: **21**.
 
 | Università / Ente | Persone PI distinte | Progetti con PI |
 |---|---:|---:|
+| Università degli Studi di MILANO | 12 | 12 |
 | Università degli Studi di PADOVA | 11 | 11 |
-| Università degli Studi di MILANO | 10 | 10 |
 | Consiglio Nazionale delle Ricerche | 9 | 9 |
 | Università degli Studi di ROMA "La Sapienza" | 9 | 9 |
 | Politecnico di TORINO | 8 | 8 |
@@ -18,6 +18,7 @@ File Excel analizzati: **20**.
 | Università degli Studi di FIRENZE | 5 | 5 |
 | Università degli Studi di TRENTO | 5 | 5 |
 | Università degli Studi di PALERMO | 4 | 4 |
+| Università degli Studi di PAVIA | 4 | 4 |
 | Università degli Studi di VERONA | 4 | 4 |
 | Gran Sasso Science Institute - Scuola di dottorato internazionale | 3 | 3 |
 | Università degli Studi di CATANIA | 3 | 3 |
@@ -34,7 +35,6 @@ File Excel analizzati: **20**.
 | Università degli Studi di CAGLIARI | 2 | 2 |
 | Università degli Studi di CASSINO e del LAZIO MERIDIONALE | 2 | 2 |
 | Università degli Studi di NAPOLI "Parthenope" | 2 | 2 |
-| Università degli Studi di PAVIA | 2 | 2 |
 | LINK CAMPUS University | 1 | 1 |
 | LUM "Giuseppe Degennaro" | 1 | 1 |
 | Museo storico della Fisica e Centro Studi e Ricerche "Enrico Fermi" | 1 | 1 |
@@ -43,6 +43,7 @@ File Excel analizzati: **20**.
 | Università degli Studi del PIEMONTE ORIENTALE | 1 | 1 |
 | Università degli Studi dell'AQUILA | 1 | 1 |
 | Università degli Studi di BARI ALDO MORO | 1 | 1 |
+| Università degli Studi di BRESCIA | 1 | 1 |
 | Università degli Studi di CAMERINO | 1 | 1 |
 | Università degli Studi di FERRARA | 1 | 1 |
 | Università degli Studi di MESSINA | 1 | 1 |
@@ -55,7 +56,7 @@ File Excel analizzati: **20**.
 | Università Politecnica delle MARCHE | 1 | 1 |
 | Università Telematica PEGASO | 1 | 1 |
 
-**Totale persone PI (somma per ente): 161**
+**Totale persone PI (somma per ente): 166**
 
 Nota: solo righe con ruolo `PI`; nomi distinti per ente. Enti aggregati per codice fiscale, quando presente.
 

@@ -1,10 +1,10 @@
 # PRIN 2026 – Atenei italiani senza progetti finanziati nei dati disponibili
 
-**File Excel analizzati:** 20; **progetti complessivi (anche enti non universitari):** 161.  
+**File Excel analizzati:** 21; **progetti complessivi (anche enti non universitari):** 166.  
 **Istituzioni nell'anagrafe di riferimento:** 101.  
 **Atenei con almeno una partecipazione PI/RU:** 82.  
 **Atenei senza alcuna partecipazione PI/RU:** 19.  
-**Atenei senza coordinamenti PI (possono essere RU):** 54.
+**Atenei senza coordinamenti PI (possono essere RU):** 53.
 
 ## Atenei senza alcun progetto come PI o RU
 
@@ -83,10 +83,9 @@
 | Lazio | Università telematica "San Raffaele" di Roma - già "UNITEL" | 3 | 577.501,00 |
 | Lazio | Università telematica Niccolò Cusano di Roma | 6 | 1.181.913,00 |
 | Liguria | Università degli studi di Genova | 11 | 2.244.962,00 |
-| Lombardia | Humanitas University | 4 | 749.078,00 |
+| Lombardia | Humanitas University | 5 | 1.029.078,00 |
 | Lombardia | Libera Università di Lingue e Comunicazione (IULM) | 2 | 399.844,00 |
 | Lombardia | Università "Carlo Cattaneo" (LIUC) | 1 | 212.092,00 |
-| Lombardia | Università degli Studi di Brescia | 10 | 1.935.654,00 |
 | Lombardia | Università telematica "e-Campus" di Novedrate (CO) | 3 | 586.804,00 |
 | Marche | Università degli studi "Carlo Bo" di Urbino | 2 | 359.583,00 |
 | Marche | Università degli Studi di Macerata | 1 | 140.885,00 |

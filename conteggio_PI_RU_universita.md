@@ -1,66 +1,66 @@
 # Numero di PI e RU per università/ente
 
-File Excel analizzati: **20**. Righe PI/RU valide: **818**.
+File Excel analizzati: **21**. Righe PI/RU valide: **843**.
 
 | Università / Ente | PI | RU | Totale |
 |---|---:|---:|---:|
-| Consiglio Nazionale delle Ricerche | 9 | 46 | 55 |
-| Università degli Studi di ROMA "La Sapienza" | 9 | 46 | 55 |
+| Università degli Studi di ROMA "La Sapienza" | 9 | 48 | 57 |
+| Consiglio Nazionale delle Ricerche | 9 | 47 | 56 |
 | Università degli Studi di PADOVA | 11 | 25 | 36 |
-| Università degli Studi di TORINO | 6 | 26 | 32 |
-| Università degli Studi di Napoli Federico II | 7 | 23 | 30 |
-| Università degli Studi di MILANO | 10 | 19 | 29 |
-| Alma Mater Studiorum - Università di BOLOGNA | 6 | 23 | 29 |
-| Università degli Studi di FIRENZE | 5 | 19 | 24 |
+| Università degli Studi di TORINO | 6 | 27 | 33 |
+| Università degli Studi di MILANO | 12 | 20 | 32 |
+| Università degli Studi di Napoli Federico II | 7 | 24 | 31 |
+| Alma Mater Studiorum - Università di BOLOGNA | 6 | 24 | 30 |
+| Università degli Studi di FIRENZE | 5 | 20 | 25 |
 | Università degli Studi di TRENTO | 5 | 16 | 21 |
+| Politecnico di MILANO | 2 | 19 | 21 |
 | Università degli Studi di SALERNO | 7 | 13 | 20 |
-| Politecnico di MILANO | 2 | 18 | 20 |
 | Università degli Studi di ROMA "Tor Vergata" | 1 | 19 | 20 |
+| Università degli Studi di MILANO-BICOCCA | 8 | 11 | 19 |
 | Università di PISA | 3 | 16 | 19 |
-| Università degli Studi di MILANO-BICOCCA | 8 | 10 | 18 |
 | Politecnico di TORINO | 8 | 9 | 17 |
 | Università degli Studi di PARMA | 1 | 16 | 17 |
 | Università degli Studi di CATANIA | 3 | 13 | 16 |
 | Università degli Studi di PALERMO | 4 | 11 | 15 |
 | Università degli Studi ROMA TRE | 3 | 12 | 15 |
 | Università degli Studi della Campania "Luigi Vanvitelli" | 2 | 12 | 14 |
-| Università degli Studi di BARI ALDO MORO | 1 | 12 | 13 |
+| Università degli Studi di BARI ALDO MORO | 1 | 13 | 14 |
+| Università degli Studi di PAVIA | 4 | 9 | 13 |
 | Università degli Studi di PERUGIA | 0 | 13 | 13 |
+| Università degli Studi di BRESCIA | 1 | 11 | 12 |
 | Università degli Studi di SIENA | 6 | 5 | 11 |
+| Università Cattolica del Sacro Cuore | 1 | 10 | 11 |
 | Università degli Studi di GENOVA | 0 | 11 | 11 |
-| Università degli Studi di PAVIA | 2 | 8 | 10 |
-| Università Cattolica del Sacro Cuore | 1 | 9 | 10 |
-| Università degli Studi di BRESCIA | 0 | 10 | 10 |
+| Università degli Studi di VERONA | 4 | 6 | 10 |
 | Università degli Studi di NAPOLI "Parthenope" | 2 | 7 | 9 |
 | Università degli Studi del PIEMONTE ORIENTALE | 1 | 8 | 9 |
 | Università degli Studi di MESSINA | 1 | 8 | 9 |
 | Università degli Studi di MODENA e REGGIO EMILIA | 1 | 8 | 9 |
-| Università degli Studi di VERONA | 4 | 4 | 8 |
 | Università degli Studi di TRIESTE | 3 | 5 | 8 |
 | Università degli Studi di CASSINO e del LAZIO MERIDIONALE | 2 | 6 | 8 |
+| UNISR - Università Vita Salute San Raffaele | 2 | 5 | 7 |
 | Università degli Studi dell'AQUILA | 1 | 6 | 7 |
+| Università degli Studi INSUBRIA Varese-Como | 1 | 6 | 7 |
 | Scuola Internazionale Superiore di Studi Avanzati di TRIESTE | 2 | 4 | 6 |
-| UNISR - Università Vita Salute San Raffaele | 2 | 4 | 6 |
 | Università degli Studi di CAGLIARI | 2 | 4 | 6 |
 | LINK CAMPUS University | 1 | 5 | 6 |
-| Università degli Studi INSUBRIA Varese-Como | 1 | 5 | 6 |
 | Università del SALENTO | 1 | 5 | 6 |
 | Istituto Nazionale di Fisica Nucleare | 0 | 6 | 6 |
 | UNICUSANO Università degli Studi Niccolò Cusano -Telematica Roma | 0 | 6 | 6 |
 | Università della CALABRIA | 0 | 6 | 6 |
 | Istituto Nazionale di Astrofisica | 2 | 3 | 5 |
 | Università degli Studi di FERRARA | 1 | 4 | 5 |
+| HUMANITAS University | 0 | 5 | 5 |
 | Università "Campus Bio-Medico" di ROMA | 0 | 5 | 5 |
 | Università degli Studi del MOLISE | 0 | 5 | 5 |
 | Università degli Studi di FOGGIA | 0 | 5 | 5 |
 | Gran Sasso Science Institute - Scuola di dottorato internazionale | 3 | 1 | 4 |
+| Università degli Studi della TUSCIA | 2 | 2 | 4 |
 | Università degli Studi di CAMERINO | 1 | 3 | 4 |
 | Università Politecnica delle MARCHE | 1 | 3 | 4 |
 | Università Telematica PEGASO | 1 | 3 | 4 |
-| HUMANITAS University | 0 | 4 | 4 |
 | Università Ca' Foscari VENEZIA | 0 | 4 | 4 |
 | Università degli Studi "Magna Graecia" di CATANZARO | 0 | 4 | 4 |
-| Università degli Studi della TUSCIA | 2 | 1 | 3 |
 | Istituto Nazionale Geofisica e Vulcanologia | 0 | 3 | 3 |
 | Luiss Libera Università Internazionale degli Studi Sociali Guido Carli | 0 | 3 | 3 |
 | Politecnico di BARI | 0 | 3 | 3 |
@@ -94,7 +94,7 @@ File Excel analizzati: **20**. Righe PI/RU valide: **818**.
 | Università degli Studi di ROMA "Foro Italico" | 0 | 1 | 1 |
 | Università degli Studi di SASSARI | 0 | 1 | 1 |
 | Università degli Studi di TERAMO | 0 | 1 | 1 |
-| **TOTALE** | **161** | **657** | **818** |
+| **TOTALE** | **166** | **677** | **843** |
 
 Nota: i valori contano i **nomi distinti per ente e ruolo**, non le partecipazioni a progetti. Una persona che svolge entrambi i ruoli è contata in entrambi. Enti aggregati per codice fiscale.
 
