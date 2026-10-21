@@ -3,7 +3,7 @@
 File Excel analizzati: **23**. Righe PI/RU valide: **890**.
 
 | Università / Ente | PI | RU | Totale |
-|---|---:|---:|
+|---|---:|---:|---:|
 | Università degli Studi di ROMA "La Sapienza" | 10 | 52 | 62 |
 | Consiglio Nazionale delle Ricerche | 9 | 50 | 59 |
 | Università degli Studi di PADOVA | 11 | 26 | 37 |
