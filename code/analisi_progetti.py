@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """Distribuzione dei finanziamenti e confronto delle dimensioni dei progetti PRIN.
 
-Report Markdown e tre CSV nella radice del progetto. L'importo di ogni
+Report esclusivamente Markdown nella radice del progetto. L'importo di ogni
 progetto viene contato una sola volta dal riepilogo di prin_data.py.
 """
 import argparse
-import csv
 import statistics
 import sys
 from collections import Counter, defaultdict
@@ -123,62 +122,42 @@ def crea_report(dati, projects, sectors, sizes):
                   '|---|---|---:|---:|---:|'])
     for r in sorted(projects, key=lambda x: (-x['mur'], x['settore'], x['codice']))[:20]:
         lines.append(f"| {r['settore']} | {r['codice']} | {r['unita']} | {r['enti']} | {euro(r['mur'])} |")
+    lines.extend(['', '## Dettaglio completo di tutti i progetti', '',
+                  '| Settore | Codice progetto | MUR totale (EUR) | PI | RU | Unita | Enti distinti | MUR PI (EUR) | MUR RU (EUR) | MUR per unita (EUR) |',
+                  '|---|---|---:|---:|---:|---:|---:|---:|---:|---:|'])
+    for r in projects:
+        lines.append(f"| {r['settore']} | {r['codice']} | {euro(r['mur'])} | {r['pi']} | {r['ru']} | "
+                     f"{r['unita']} | {r['enti']} | {euro(r['mur_pi'])} | {euro(r['mur_ru'])} | {euro(r['mur_per_unita'])} |")
+    lines.extend(['', '## Altri indicatori per settore', '',
+                  '| Settore | Unita totali | RU totali | Enti medi per progetto |',
+                  '|---|---:|---:|---:|'])
+    for s in sectors:
+        lines.append(f"| {s['settore']} | {s['unita_totali']} | {s['ru_totali']} | {s['enti_medi']:.2f} |")
     lines.extend(['', '## Note metodologiche', '',
                   '- Il contributo MUR di ciascun progetto e preso dalla tabella riepilogativa, evitando il doppio conteggio delle unita.',
                   '- Per ciascun progetto si controlla che la somma degli importi PI e RU coincida col contributo totale.',
                   '- La dimensione e misurata come **unita PI+RU**; gli enti distinti sono identificati per codice fiscale (se presente).',
                   '- Medie e mediane sono calcolate sui soli progetti **finanziati** inclusi nei file, non su tutte le candidature.',
-                  '- Gli output CSV contengono ogni singolo progetto, i riepiloghi di settore e la distribuzione delle dimensioni.', ''])
+                  '- Il dettaglio di ogni progetto e di tutti i settori e disponibile nelle tabelle di questo report.', ''])
     if dati.avvisi:
         lines.extend(['## Avvisi relativi ai dati sorgente', ''] + [f'- {a}' for a in dati.avvisi] + [''])
     return '\n'.join(lines)
-
-
-def write_csv(path, header, rows):
-    with path.open('w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.writer(f, delimiter=';')
-        writer.writerow(header)
-        writer.writerows(rows)
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data', type=Path, default=DATA_DIR)
     parser.add_argument('--md', type=Path, default=Path('analisi_progetti.md'))
-    parser.add_argument('--csv-dir', type=Path, default=Path('.'))
     args = parser.parse_args()
     dati = carica_dataset(destinazione(args.data))
     projects = crea_righe(dati)
     sectors = aggrega_settori(projects)
     sizes = aggrega_dimensioni(projects)
     md = destinazione(args.md)
-    csv_dir = destinazione(args.csv_dir)
     md.parent.mkdir(parents=True, exist_ok=True)
-    csv_dir.mkdir(parents=True, exist_ok=True)
     md.write_text(crea_report(dati, projects, sectors, sizes), encoding='utf-8')
-    p_projects = csv_dir / 'analisi_progetti.csv'
-    write_csv(p_projects,
-              ['Settore', 'Codice progetto', 'MUR totale EUR', 'PI', 'RU',
-               'Unita', 'Enti distinti', 'MUR PI EUR', 'MUR RU EUR', 'MUR medio per unita EUR'],
-              ([r['settore'], r['codice'], str(r['mur']), r['pi'], r['ru'],
-                r['unita'], r['enti'], str(r['mur_pi']), str(r['mur_ru']),
-                str(r['mur_per_unita'])] for r in projects))
-    p_sectors = csv_dir / 'analisi_progetti_settori.csv'
-    write_csv(p_sectors,
-              ['Settore', 'Progetti', 'MUR totale EUR', 'MUR medio EUR', 'MUR mediano EUR',
-               'MUR minimo EUR', 'MUR massimo EUR', 'Unita totali', 'Unita medie',
-               'RU totali', 'Enti medi per progetto'],
-              ([s['settore'], s['progetti'], str(s['mur_totale']), str(s['mur_medio']),
-                str(s['mur_mediano']), str(s['mur_min']), str(s['mur_max']),
-                s['unita_totali'], str(s['unita_medie']), s['ru_totali'], str(s['enti_medi'])]
-               for s in sectors))
-    p_sizes = csv_dir / 'analisi_progetti_dimensioni.csv'
-    write_csv(p_sizes, ['Unita per progetto', 'Numero progetti', 'MUR totale EUR',
-                        'MUR medio EUR', 'Enti medi per progetto'],
-              ([s['unita'], s['progetti'], str(s['mur_totale']), str(s['mur_medio']),
-                str(s['enti_medi'])] for s in sizes))
     print(f'OK {len(dati.file)} file, {len(projects)} progetti, MUR {euro(sum((r["mur"] for r in projects), Decimal(0)))} EUR')
-    print(f'Markdown: {md}\nCSV: {p_projects}\nCSV: {p_sectors}\nCSV: {p_sizes}')
+    print(f'Markdown: {md}')
     for avviso in dati.avvisi:
         print(f'AVVISO: {avviso}', file=sys.stderr)
 

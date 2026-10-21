@@ -1,44 +1,65 @@
-# Script PRIN 2026: istruzioni
+# PRIN 2026 - Analisi con output esclusivamente Markdown
 
-I file `.py` devono rimanere in `code/` e gli Excel da elaborare in una directory sorella `data/`.
+La struttura del progetto e':
 
 ```text
 progetto/
-  code/
-    prin_data.py
-    conta_pi.py
-    conta_pi_ru.py
-    riepilogo_settori.py
-    finanziamenti_per_ateneo.py
-  data/
-    *.xlsx
-  conteggio_PI_per_universita.md
-  conteggio_PI_RU_universita.md
-  riepilogo_settori.md
-  riepilogo_finanziamenti_atenei.md
+  code/       script Python e documentazione
+  data/       23 Excel dei settori e atenei_italiani.csv (anagrafe di input)
+  *.md        report statistici generati nella root
 ```
 
-Installa la dipendenza con `python -m pip install openpyxl`.
+## Dipendenze
 
-Esegui dalla cartella `progetto/`:
+Per gli script di analisi e' sufficiente Python 3 con `openpyxl`:
 
 ```bash
-python code/conta_pi.py
-python code/conta_pi_ru.py
-python code/riepilogo_settori.py
-python code/finanziamenti_per_ateneo.py
+python -m pip install openpyxl
 ```
 
-I quattro report Markdown sono salvati nella directory principale `progetto/`, anche se gli script vengono lanciati da un altro percorso: `PROJECT_ROOT` viene calcolato a partire da `code/prin_data.py`, non dalla directory di lavoro. Anche il percorso `--md risultato.md` e' relativo a `progetto/`; con `--md /percorso/assoluto/risultato.md` si puo' invece scegliere un'altra destinazione. I file Python rimangono in `code/`. Per esportare i finanziamenti anche in CSV:
+## Gli otto script di analisi
 
-```bash
-python code/finanziamenti_per_ateneo.py --csv riepilogo.csv
-```
+| Comando | Unico file di output |
+|---|---|
+| `python code/conta_pi.py` | `conteggio_PI_per_universita.md` |
+| `python code/conta_pi_ru.py` | `conteggio_PI_RU_universita.md` |
+| `python code/finanziamenti_per_ateneo.py` | `riepilogo_finanziamenti_atenei.md` |
+| `python code/riepilogo_settori.py` | `riepilogo_settori.md` |
+| `python code/analisi_leadership.py` | `analisi_leadership.md` |
+| `python code/rete_collaborazioni.py` | `rete_collaborazioni.md` |
+| `python code/analisi_progetti.py` | `analisi_progetti.md` |
+| `python code/atenei_senza_progetti.py` | `atenei_senza_progetti.md` |
 
-Per usare una diversa cartella Excel con lo script dei finanziamenti:
+Tutti i report sono scritti nella **root del progetto**, individuata dalla posizione degli script,
+non dalla directory di lavoro corrente. Gli script non producono CSV, XLSX, PDF, immagini o
+altri file di risultato. Le normali informazioni diagnostiche sono stampate nel terminale.
 
-```bash
-python code/finanziamenti_per_ateneo.py /percorso/agli/xlsx --md risultato.md
-```
+Per gli script che supportano le opzioni `--data` e `--md`, i percorsi relativi sono riferiti
+alla root del progetto; `--md report/analisi.md` crea una sottocartella nel progetto.
+L'opzione `--csv` e l'opzione `--csv-dir` sono state rimosse.
 
-Il modulo `prin_data.py` riconosce sia i file con unità nel foglio `Progetti` sia quelli con il foglio `Unita`. Verifica che la somma MUR delle unità corrisponda all'importo dei progetti; eventuali discrepanze bloccano l'elaborazione. Discrepanze nei soli conteggi dichiarati delle unità e codici unità duplicati vengono segnalati, senza eliminare le righe. Rimane un'anomalia di conteggio nel file LS4, descritta in `verifica_esecuzione.md`. La duplicazione del codice unità PE1 è stata corretta.
+Le tabelle complete precedentemente esportate in CSV sono ora comprese nel Markdown:
+- `analisi_leadership.md`: enti, persone distinte, ruoli, settori, progetti, finanziamenti, Gini e HHI.
+- `rete_collaborazioni.md`: indici per tutti i nodi e tutti gli archi, compresi i progetti condivisi.
+- `analisi_progetti.md`: tutti i progetti, importi PI e RU, analisi per settore e dimensioni dei consorzi.
+- `atenei_senza_progetti.md`: assenti, distribuzioni, soli RU e tabella di tutti gli atenei censiti.
+- `riepilogo_finanziamenti_atenei.md`: anche il codice fiscale degli enti.
+
+**Attenzione:** `data/atenei_italiani.csv` e' un *file sorgente* necessario per
+`atenei_senza_progetti.py`. Rimane in formato CSV per preservare l'anagrafe preesistente:
+non e' un output degli script.
+
+## Conversioni PDF -> Excel (preparazione dei dati)
+
+I tre convertitori `importa_sh7.py`, `importa_ls6.py` e `importa_hpc_qt.py`
+sono strumenti di acquisizione dei dati, non script di analisi: producono
+intenzionalmente file `.xlsx` in `data/`. Non modificano la regola sugli output Markdown
+degli otto script statistici. Richiedono anche `pdftotext` (Poppler).
+
+## Copertura e controlli
+
+Dataset di riferimento: 23 file Excel, 175 progetti, 196.711.295 EUR MUR.
+`prin_data.py` verifica la coerenza tra i finanziamenti delle unita' e dei progetti.
+Rimane una incongruenza nel **solo conteggio delle unita' di LS4**, segnalata nei report;
+la somma dei finanziamenti risulta coerente. Le statistiche si riferiscono soltanto ai
+progetti finanziati dei settori caricati, non a tutte le candidature PRIN.

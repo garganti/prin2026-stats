@@ -2,11 +2,10 @@
 """Leadership, diversificazione e concentrazione PRIN 2026.
 
 Dipendenza: openpyxl e modulo locale prin_data.py.
-Lettura: <radice>/data/*.xlsx; output MD/CSV: <radice>/.
+Lettura: <radice>/data/*.xlsx; output Markdown: <radice>/.
 L'aggregazione degli enti usa il codice fiscale, se disponibile.
 """
 import argparse
-import csv
 import sys
 from collections import defaultdict
 from decimal import Decimal
@@ -127,8 +126,14 @@ def crea_report(dati, rows, totale):
     for r in diversificati[:20]:
         lines.append(f"| {testo_md(r['ente'])} | {r['num_settori']} | {r['progetti']} | "
                      f"{', '.join(r['settori'])} |")
+    lines.extend(['', '## Dettaglio completo: persone distinte e settori per ente', '',
+                  '| Ateneo / Ente | Codice fiscale | Persone PI distinte | Persone RU distinte | Progetti distinti | Settori (codici) |',
+                  '|---|---|---:|---:|---:|---|'])
+    for r in rows:
+        lines.append(f"| {testo_md(r['ente'])} | {r['codice_fiscale']} | {r['persone_pi']} | "
+                     f"{r['persone_ru']} | {r['progetti']} | {', '.join(r['settori'])} |")
     lines.extend(['', '## Metodo', '',
-                  '- Il ruolo PI/RU conta **partecipazioni di unita** (non persone distinte); le persone distinte sono nel CSV.',
+                  '- Il ruolo PI/RU conta **partecipazioni di unita** (non persone distinte); le persone distinte sono indicate nella tabella di dettaglio qui sotto.',
                   '- PI/RU = partecipazioni PI divise per le partecipazioni RU; se RU = 0, il rapporto non e definito.',
                   '- Un progetto e contato una sola volta per ente, anche in presenza di piu unita dello stesso ente.',
                   '- I codici fiscali sono usati per identificare gli enti quando presenti.',
@@ -143,30 +148,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data', type=Path, default=DATA_DIR, help='Cartella dei file xlsx')
     parser.add_argument('--md', type=Path, default=Path('analisi_leadership.md'), help='Report Markdown')
-    parser.add_argument('--csv-dir', type=Path, default=Path('.'), help='Cartella per i CSV')
     args = parser.parse_args()
     dati = carica_dataset(destinazione(args.data))
     rows, totale = analizza(dati)
     md = destinazione(args.md)
-    outdir = destinazione(args.csv_dir)
     md.parent.mkdir(parents=True, exist_ok=True)
-    outdir.mkdir(parents=True, exist_ok=True)
     md.write_text(crea_report(dati, rows, totale), encoding='utf-8')
-    csv_path = outdir / 'analisi_leadership.csv'
-    with csv_path.open('w', newline='', encoding='utf-8-sig') as f:
-        writer = csv.writer(f, delimiter=';')
-        writer.writerow(['Ente', 'Codice fiscale', 'PI partecipazioni', 'RU partecipazioni',
-                         'PI persone distinte', 'RU persone distinte', 'Progetti distinti',
-                         'Settori distinti', 'Elenco settori', 'MUR PI EUR', 'MUR RU EUR',
-                         'MUR totale EUR', 'Quota totale pct', 'Rapporto PI/RU'])
-        for r in rows:
-            writer.writerow([r['ente'], r['codice_fiscale'], r['pi'], r['ru'],
-                             r['persone_pi'], r['persone_ru'], r['progetti'], r['num_settori'],
-                             '|'.join(r['settori']), str(r['mur_pi']), str(r['mur_ru']),
-                             str(r['mur_totale']), f"{percentuale(r['mur_totale'], totale):.4f}",
-                             '' if r['rapporto_pi_ru'] is None else f"{r['rapporto_pi_ru']:.4f}"])
     print(f'OK {len(dati.file)} file, {len(dati.progetti)} progetti, {len(rows)} enti; MUR {euro(totale)} EUR')
-    print(f'Markdown: {md}\nCSV: {csv_path}')
+    print(f'Markdown: {md}')
     for avviso in dati.avvisi:
         print(f'AVVISO: {avviso}', file=sys.stderr)
 

@@ -7,7 +7,6 @@ secondo i ruoli assunti dalle due istituzioni nel progetto.
 Calcola grado, forza del nodo e betweenness non pesata (algoritmo di Brandes).
 """
 import argparse
-import csv
 import sys
 from collections import defaultdict, deque
 from decimal import Decimal
@@ -167,13 +166,26 @@ def crea_report(dati, nodes, edges, comps):
                   '|---|---:|---:|'])
     for n in by_bridge[:20]:
         lines.append(f"| {n['ente'].replace('|', '/')} | {n['betweenness']:.4f} | {n['grado']} |")
+    lines.extend(['', '## Dati completi: tutti i nodi', '',
+                  '| Ente | Codice fiscale | PI | RU | Progetti | Settori | MUR totale (EUR) | Grado | Grado normalizzato | Forza | Betweenness |',
+                  '|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|'])
+    for r in nodes:
+        lines.append(f"| {r['ente'].replace('|', '/')} | {r['cf']} | {r['pi']} | {r['ru']} | "
+                     f"{r['progetti']} | {r['settori']} | {euro(r['mur'])} | {r['grado']} | "
+                     f"{r['grado_norm']:.6f} | {r['forza']} | {r['betweenness']:.6f} |")
+    lines.extend(['', '## Dati completi: tutte le collaborazioni (archi)', '',
+                  '| Ente A | Ente B | Progetti condivisi | PI-RU | RU-RU | Codici progetti condivisi |',
+                  '|---|---|---:|---:|---:|---|'])
+    for r in edges:
+        lines.append(f"| {r['a'].replace('|', '/')} | {r['b'].replace('|', '/')} | {r['peso']} | "
+                     f"{r['pi_ru']} | {r['ru_ru']} | {', '.join(r['progetti'])} |")
     lines.extend(['', '## Metodo e interpretazione', '',
                   '- Rete **non orientata**: due enti sono collegati quando almeno una loro unita partecipa allo stesso progetto.',
                   '- Un arco conta ogni progetto condiviso **una sola volta**, anche con piu unita per ente.',
                   '- Il **grado** e il numero di partner istituzionali distinti; la **forza** somma i progetti condivisi sui vari partner.',
                   '- I tipi PI-RU e RU-RU contano le collaborazioni per coppia di enti in un progetto; una coppia puo essere classificata in entrambe le categorie solo se i ruoli lo consentono.',
                   '- **Intermediazione (betweenness)**: frazione normalizzata dei cammini minimi che attraversano l\'ente, senza pesare gli archi; non e una misura di qualita scientifica.',
-                  '- CSV completi: nodi (tutti gli enti) e archi (tutte le coppie), con codici dei progetti condivisi.', ''])
+                  '- Le tabelle integrali di nodi e archi sono incluse in questo report Markdown.', ''])
     if dati.avvisi:
         lines.extend(['## Avvisi relativi ai dati sorgente', ''] + [f'- {a}' for a in dati.avvisi] + [''])
     return '\n'.join(lines)
@@ -183,34 +195,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--data', type=Path, default=DATA_DIR, help='Cartella XLSX')
     parser.add_argument('--md', type=Path, default=Path('rete_collaborazioni.md'))
-    parser.add_argument('--csv-dir', type=Path, default=Path('.'))
     args = parser.parse_args()
     dati = carica_dataset(destinazione(args.data))
     nodes, edges, comps = analizza(dati)
     md = destinazione(args.md)
-    csv_dir = destinazione(args.csv_dir)
     md.parent.mkdir(parents=True, exist_ok=True)
-    csv_dir.mkdir(parents=True, exist_ok=True)
     md.write_text(crea_report(dati, nodes, edges, comps), encoding='utf-8')
-    path_nodes = csv_dir / 'rete_collaborazioni_nodi.csv'
-    with path_nodes.open('w', newline='', encoding='utf-8-sig') as f:
-        w = csv.writer(f, delimiter=';')
-        w.writerow(['Ente', 'Codice fiscale', 'Partecipazioni PI', 'Partecipazioni RU',
-                    'Progetti distinti', 'Settori distinti', 'MUR totale EUR', 'Grado',
-                    'Grado normalizzato', 'Forza', 'Betweenness normalizzata'])
-        for r in nodes:
-            w.writerow([r['ente'], r['cf'], r['pi'], r['ru'], r['progetti'], r['settori'],
-                        str(r['mur']), r['grado'], f"{r['grado_norm']:.6f}", r['forza'],
-                        f"{r['betweenness']:.6f}"])
-    path_edges = csv_dir / 'rete_collaborazioni_archi.csv'
-    with path_edges.open('w', newline='', encoding='utf-8-sig') as f:
-        w = csv.writer(f, delimiter=';')
-        w.writerow(['Ente A', 'Ente B', 'Numero progetti condivisi',
-                    'Progetti PI-RU', 'Progetti RU-RU', 'Elenco progetti (settore:codice)'])
-        for r in edges:
-            w.writerow([r['a'], r['b'], r['peso'], r['pi_ru'], r['ru_ru'], '|'.join(r['progetti'])])
     print(f'OK {len(dati.file)} file, {len(nodes)} enti, {len(edges)} collaborazioni; componenti: {len(comps)}')
-    print(f'Markdown: {md}\nCSV: {path_nodes}\nCSV: {path_edges}')
+    print(f'Markdown: {md}')
     for avviso in dati.avvisi:
         print(f'AVVISO: {avviso}', file=sys.stderr)
 

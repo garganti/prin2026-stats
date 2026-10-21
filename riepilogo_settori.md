@@ -1,10 +1,11 @@
 # Riepilogo progetti finanziati per settore
 
-File Excel analizzati: **21**.
+File Excel analizzati: **23**.
 
 | Settore | Progetti | RU | Contributo MUR totale (€) |
 |:---|---:|---:|---:|
 | CYB | 4 | 16 | 5.536.413,00 |
+| HPC | 4 | 16 | 5.541.856,00 |
 | IA | 13 | 59 | 17.660.954,00 |
 | LS2 | 5 | 16 | 5.431.137,00 |
 | LS3 | 4 | 14 | 4.669.992,00 |
@@ -21,11 +22,12 @@ File Excel analizzati: **21**.
 | PE7 | 11 | 46 | 11.448.788,00 |
 | PE8 | 14 | 61 | 16.458.886,00 |
 | PE9 | 4 | 15 | 4.292.671,00 |
+| QT | 5 | 22 | 6.618.858,00 |
 | SH4 | 8 | 28 | 8.120.980,00 |
 | SH5 | 9 | 38 | 10.215.141,00 |
 | SH6 | 9 | 33 | 9.245.266,00 |
 | SH7 | 6 | 25 | 7.001.948,00 |
-| **TOTALE** | **166** | **677** | **184.550.581,00** |
+| **TOTALE** | **175** | **715** | **196.711.295,00** |
 
 RU = unità di ricerca con ruolo RU (esclusi i PI). Gli importi sono sommati una sola volta per progetto.
 

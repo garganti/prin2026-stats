@@ -3,11 +3,10 @@
 
 Esempi:
   python code/finanziamenti_per_ateneo.py
-  python code/finanziamenti_per_ateneo.py data --md riepilogo_atenei.md --csv riepilogo.csv
+  python code/finanziamenti_per_ateneo.py data --md riepilogo_atenei.md
 Dipendenza: pip install openpyxl
 """
 import argparse
-import csv
 import sys
 from collections import defaultdict
 from decimal import Decimal
@@ -41,14 +40,14 @@ def crea_markdown(risultati, totale, nfile, avvisi=()):
         f'**File Excel analizzati:** {nfile}  ',
         f'**Enti distinti:** {len(risultati)}  ',
         f'**Finanziamento MUR complessivo:** {euro(totale)} €', '',
-        '| Pos. | Università / Ente | Totale finanziato (EUR) | % sul totale |',
-        '|---:|---|---:|---:|',
+        '| Pos. | Università / Ente | Codice fiscale | Totale finanziato (EUR) | % sul totale |',
+        '|---:|---|---|---:|---:|',
     ]
-    for pos, (nome, _, somma, quota) in enumerate(risultati, 1):
+    for pos, (nome, cf, somma, quota) in enumerate(risultati, 1):
         nome_md = nome.replace('|', '\\|').replace('\n', ' ').replace('\r', ' ')
         percentuale = f'{quota:.2f}'.replace('.', ',')
-        righe.append(f'| {pos} | {nome_md} | {euro(somma)} € | {percentuale}% |')
-    righe.append(f'| | **TOTALE** | **{euro(totale)} €** | **100,00%** |')
+        righe.append(f'| {pos} | {nome_md} | {cf} | {euro(somma)} € | {percentuale}% |')
+    righe.append(f'| | **TOTALE** | | **{euro(totale)} €** | **100,00%** |')
     righe.extend(['', '*Percentuale rispetto alla somma dei contributi MUR assegnati '
                   'alle unità di ricerca dei file analizzati.*', ''])
     if avvisi:
@@ -63,7 +62,6 @@ def main():
     parser.add_argument('cartella', nargs='?', type=Path, default=DATA_DIR,
                         help=f'Cartella XLSX (predefinita: {DATA_DIR})')
     parser.add_argument('--md', type=Path, default=OUTPUT, help=f'Output Markdown (predefinito: {OUTPUT})')
-    parser.add_argument('--csv', type=Path, help='Output CSV opzionale')
     args = parser.parse_args()
     try:
         risultati, totale, dati = calcola(args.cartella)
@@ -76,13 +74,6 @@ def main():
     print(f'\nFile Markdown scritto in: {percorso_md}', file=sys.stderr)
     for avviso in dati.avvisi:
         print(f'AVVISO: {avviso}', file=sys.stderr)
-    if args.csv:
-        with args.csv.open('w', newline='', encoding='utf-8-sig') as f:
-            writer = csv.writer(f, delimiter=';')
-            writer.writerow(['Ateneo/Ente', 'Codice fiscale', 'Totale MUR assegnato (€)', 'Percentuale (%)'])
-            for nome, cf, somma, quota in risultati:
-                writer.writerow([nome, cf, str(somma), f'{quota:.4f}'])
-        print(f'CSV scritto in: {args.csv}', file=sys.stderr)
 
 
 if __name__ == '__main__':
