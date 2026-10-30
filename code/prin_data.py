@@ -16,7 +16,7 @@ from openpyxl import load_workbook
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / 'data'
 CODICE_PROGETTO = re.compile(r'^20\d{2}[A-Z0-9]+$')
-SETTORE = re.compile(r'^(?:PE\d+|LS\d+|SH\d+|CYB|IA|HPC|QT)$')
+SETTORE = re.compile(r'^(?:PE\d+|LS\d+|SH\d+|CYB|IA|HPC|QT|HT)$')
 
 
 def normalizza(s):

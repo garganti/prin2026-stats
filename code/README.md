@@ -5,7 +5,7 @@ La struttura del progetto e':
 ```text
 progetto/
   code/       script Python e documentazione
-  data/       23 Excel dei settori e atenei_italiani.csv (anagrafe di input)
+  data/       30 Excel dei settori e atenei_italiani.csv (anagrafe di input)
   *.md        report statistici generati nella root
 ```
 
@@ -49,17 +49,67 @@ Le tabelle complete precedentemente esportate in CSV sono ora comprese nel Markd
 `atenei_senza_progetti.py`. Rimane in formato CSV per preservare l'anagrafe preesistente:
 non e' un output degli script.
 
+## Eseguire tutte le analisi insieme
+
+Dalla root del progetto, eseguire:
+
+```bash
+python run_all.py
+```
+
+Il comando trova e lancia in ordine alfabetico tutti gli script statistici `*.py`
+nella cartella `code/`, mantenendo i report Markdown nella root. I convertitori
+`importa_*.py` e il modulo di supporto `prin_data.py` sono esclusi per evitare
+di sovrascrivere i file Excel originali.
+
+Altre opzioni:
+
+```bash
+python run_all.py --list           # mostra i programmi selezionati
+python run_all.py --stop-on-error  # interrompe al primo errore
+python run_all.py --all            # esegue letteralmente ogni file .py in code/
+```
+
+Attenzione: `--all` esegue anche i convertitori PDF->Excel e potrebbe riscrivere
+file in `data/`; usarlo solo quando si desidera importare nuovamente i PDF.
+Il programma restituisce codice di uscita 1 quando almeno uno script fallisce.
+
 ## Conversioni PDF -> Excel (preparazione dei dati)
 
-I tre convertitori `importa_sh7.py`, `importa_ls6.py` e `importa_hpc_qt.py`
+I quattro convertitori `importa_sh7.py`, `importa_ls6.py`, `importa_hpc_qt.py` e `importa_nuovi_settori.py`
 sono strumenti di acquisizione dei dati, non script di analisi: producono
 intenzionalmente file `.xlsx` in `data/`. Non modificano la regola sugli output Markdown
 degli otto script statistici. Richiedono anche `pdftotext` (Poppler).
 
 ## Copertura e controlli
 
-Dataset di riferimento: 23 file Excel, 175 progetti, 196.711.295 EUR MUR.
+Dataset aggiornato: 30 file Excel, 239 progetti, 962 RU, 271.124.789 EUR MUR.
 `prin_data.py` verifica la coerenza tra i finanziamenti delle unita' e dei progetti.
 Rimane una incongruenza nel **solo conteggio delle unita' di LS4**, segnalata nei report;
 la somma dei finanziamenti risulta coerente. Le statistiche si riferiscono soltanto ai
 progetti finanziati dei settori caricati, non a tutte le candidature PRIN.
+
+## Nuovi settori (29 ottobre 2026)
+
+Sono stati importati i PDF **HT, SH3, SH8, LS8, PE4, LS9 e LS5**, con
+64 progetti, 311 unita e 74.413.494 EUR MUR.
+
+I PDF originali devono trovarsi nella root oppure nella sottocartella `fonti/` per rigenerare gli Excel:
+
+```bash
+python code/importa_nuovi_settori.py
+```
+
+L'importatore valida i contributi delle singole unita, i subtotali di progetto e
+i totali di settore. Nel file PE4 il PDF originale e' denominato
+`PE4_Tabella_B_Graduatoria finale.pdf`, pur riportando in intestazione la Tabella B
+dei progetti finanziati.
+
+Le descrizioni degli enti spezzate sulle righe dei PDF sono state ricostruite usando
+le denominazioni degli enti gia' presenti nel dataset e il codice fiscale; per gli
+enti nuovi e' stata usata la denominazione del PDF. I dati PI under 40 dei sette
+settori non sono stati ricostruiti e sono indicati come **non verificati**.
+
+L'anagrafe degli atenei e' stata aggiornata con i CF di Bocconi,
+UnitelmaSapienza e UNINETTUNO, ricavati dai PDF, per impedire falsi assenti.
+Nel dataset attuale sono censiti 101 atenei, 89 con e 12 senza partecipazioni.

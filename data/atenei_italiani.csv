@@ -1,4 +1,4 @@
-nome;regione;tipo;codice_fiscale;fonte
+﻿nome;regione;tipo;codice_fiscale;fonte
 Università degli studi di Torino;Piemonte;Statale;80088230018;USTAT
 Politecnico di Torino;Piemonte;Statale;00518460019;USTAT
 "Università degli studi del Piemonte orientale ""Amedeo Avogadro""";Piemonte;Statale;94021400026;USTAT
@@ -10,7 +10,7 @@ Università degli Studi dell' Insubria;Lombardia;Statale;95039180120;USTAT
 "Università telematica ""e-Campus"" di Novedrate (CO)";Lombardia;Non statale;90027520130;USTAT
 Università degli Studi di Milano;Lombardia;Statale;80012650158;USTAT
 Politecnico di Milano;Lombardia;Statale;80057930150;USTAT
-Università Commerciale Luigi Bocconi di Milano;Lombardia;Non statale;;USTAT
+Università Commerciale Luigi Bocconi di Milano;Lombardia;Non statale;80024610158;"USTAT; CF da Tabella B PRIN 2026 (HT/SH3/SH8)"
 "Università Cattolica del ""Sacro Cuore""";Lombardia;Non statale;02133120150;USTAT
 Libera Università di Lingue e Comunicazione (IULM);Lombardia;Non statale;80071270153;USTAT
 Libera Università, Vita-Salute San Raffaele di Milano;Lombardia;Non statale;97187560152;USTAT
@@ -50,17 +50,17 @@ Università per stranieri di Perugia;Umbria;Statale;80002630541;USTAT
 Università degli Studi della Tuscia;Lazio;Statale;80029030568;USTAT
 Università degli studi di Roma La Sapienza;Lazio;Statale;80209930587;USTAT
 Università degli Studi di Roma Tor Vergata;Lazio;Statale;80213750583;USTAT
-Libera Università Maria SS.Assunta - (LUMSA) di Roma;Lazio;Non statale;;USTAT
+Libera Università Maria SS.Assunta - (LUMSA) di Roma;Lazio;Non statale;02635620582;USTAT
 LUISS - Libera Università internazionale degli studi sociali Guido Carli di Roma;Lazio;Non statale;02508710585;USTAT
 "Università degli studi di Roma ""Foro Italico""";Lazio;Statale;80229010584;USTAT
 Università degli Studi Roma Tre;Lazio;Statale;04400441004;USTAT
 Università Campus Bio-medico di Roma;Lazio;Non statale;97087620585;USTAT
-Università degli Studi Internazionali di Roma – UNINT;Lazio;Non statale;;USTAT
+Università degli Studi Internazionali di Roma – UNINT;Lazio;Non statale;97136680580;USTAT
 Università telematica Guglielmo Marconi di Roma;Lazio;Non statale;;USTAT
-Università telematica Unitelma Sapienza di Roma;Lazio;Non statale;;USTAT
+Università telematica Unitelma Sapienza di Roma;Lazio;Non statale;08134851008;"USTAT; CF da Tabella B PRIN 2026 (HT/SH3/SH8)"
 Università Europea di Roma;Lazio;Non statale;;USTAT
-Università telematica internazionale UNINETTUNO di Roma;Lazio;Non statale;;USTAT
-Universitas telematica Mercatorum di Roma;Lazio;Non statale;;USTAT
+Università telematica internazionale UNINETTUNO di Roma;Lazio;Non statale;97394340588;"USTAT; CF da Tabella B PRIN 2026 (HT/SH3/SH8)"
+Universitas telematica Mercatorum di Roma;Lazio;Non statale;09106101000;USTAT
 Università telematica Niccolò Cusano di Roma;Lazio;Non statale;09073721004;USTAT
 "Università telematica ""San Raffaele"" di Roma - già ""UNITEL""";Lazio;Non statale;97471900155;USTAT
 Link Campus University di Roma;Lazio;Non statale;11933781004;USTAT
